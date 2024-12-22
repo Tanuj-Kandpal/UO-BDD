@@ -1,0 +1,3 @@
+//Used for extracting property from the files
+        FileInputStream fileInputStream = new FileInputStream("src/test/resources/environment.properties");
+        properties.load(fileInputStream);

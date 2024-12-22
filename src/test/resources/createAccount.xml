@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="BrowserTestSuite" verbose="1">
+    <test name="BrowserTests">
+        <classes>
+            <!-- Replace 'your.package.TestClassName' with the actual package and class name -->
+            <class name="runner.TestRunner" />
+            <class name="stepDefinitions.CreateAccountStepDef" />
+        </classes>
+    </test>
+</suite>
