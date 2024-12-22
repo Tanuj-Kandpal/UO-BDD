@@ -1,10 +1,8 @@
 package stepDefinitions;
 
-import Helpers.DriverHelper;
 import PageObjects.CreateAccountPage;
 import com.github.javafaker.Faker;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -41,7 +39,7 @@ public class CreateAccountStepDef extends CreateAccountPage {
     public void fillRequiredDetails() {
         setFirstName(firstName);
         setLastName(lastName);
-        setEmail(current().nextLong(100000000L, 1000000000L)+"@mailto.plus");
+        setEmail(current().nextLong(100000000L, 1000000000L) + "@mailto.plus");
         setPassword("Password");
         selectCheckboxes();
     }
@@ -57,7 +55,7 @@ public class CreateAccountStepDef extends CreateAccountPage {
         waitForSpinnerToDisappear();
         validateSuccessAccountBanner();
         String actualText = getSuccessBannerText();
-        Assert.assertEquals(actualText,"Your Universal Account has been created.");
+        Assert.assertEquals(actualText, "Your Universal Account has been created.");
     }
 
     @Given("^I fill in the registration form with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
@@ -69,6 +67,7 @@ public class CreateAccountStepDef extends CreateAccountPage {
     public void verifyValidationErrorsAndAccountNotCreated() {
         // TODO: Implement validation checks
     }
+
     @After("@account")
     public void close() {
         tearDown();

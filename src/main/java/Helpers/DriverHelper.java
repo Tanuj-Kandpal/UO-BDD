@@ -10,7 +10,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeSuite;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -42,11 +41,11 @@ public class DriverHelper {
         return driver;
     }
 
-    public void tearDown (){
-      driver.quit();
+    public void tearDown() {
+        driver.quit();
     }
 
-    public void getUrl(String actualUrl){
+    public void getUrl(String actualUrl) {
         if (driver == null) {
             throw new IllegalStateException("Driver is not initialized.");
         }
@@ -130,7 +129,7 @@ public class DriverHelper {
         return driver.findElement(By.xpath(locator)).getText();
     }
 
-    public boolean isDisplayed(String locator){
+    public boolean isDisplayed(String locator) {
         return driver.findElement(By.xpath(locator)).isDisplayed();
     }
 

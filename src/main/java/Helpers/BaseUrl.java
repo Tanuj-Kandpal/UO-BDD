@@ -8,17 +8,18 @@ public class BaseUrl {
     String pageUrl;
 
     private final WebDriver driver;
-    public BaseUrl(){
+
+    public BaseUrl() {
         this.driver = DriverManager.getDriver();
     }
 
-    public void accountUrl(){
+    public void accountUrl() {
         pageUrl = uoUrl.replace("web/en/us", "account/en/us/account-management/create-account");
         driver.get(pageUrl);
     }
 
-    public String homePageUrl(){
-        return  uoUrl;
+    public String homePageUrl() {
+        return uoUrl;
     }
 
 

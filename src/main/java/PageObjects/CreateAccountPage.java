@@ -7,11 +7,11 @@ import java.io.IOException;
 public class CreateAccountPage extends DriverHelper {
     String firstName = "//*[@data-aui='firstName-input']",
             lastName = "//*[@data-aui='lastName-input']",
-            country="",
+            country = "",
             email = "//*[@data-aui='email-input']",
             password = "//*[@data-aui='create-account-password-input']",
             specialOffer = "//label[@aria-label='Yes! I would like to receive updates, special offers, and other information from Universal Orlando Resort.']",
-            termsOfService ="//label[@for='termsConditions']",
+            termsOfService = "//label[@for='termsConditions']",
             spinner = "//*[@class='spinner-circle-outer']",
             successBanner = "//*[@class='notification-msg row success ng-star-inserted']",
             createAccountButton = "//*[@data-aui='create-accnt-btn']";
@@ -23,40 +23,41 @@ public class CreateAccountPage extends DriverHelper {
         waitForPageToLoad(10);
     }
 
-    public void setFirstName(String userFirstName){
-        sendKeys(firstName,userFirstName);
+    public void setFirstName(String userFirstName) {
+        sendKeys(firstName, userFirstName);
     }
 
-    public void setLastName(String userLastName){
-        sendKeys(lastName,userLastName);
+    public void setLastName(String userLastName) {
+        sendKeys(lastName, userLastName);
     }
 
-    public void setEmail(String emailAddress){
-        sendKeys(email,emailAddress);
+    public void setEmail(String emailAddress) {
+        sendKeys(email, emailAddress);
     }
+
     public void setPassword(String userPassword) {
-        sendKeys(password,userPassword);
+        sendKeys(password, userPassword);
     }
 
-    public void selectCheckboxes(){
-        waitElementToBeClickable(specialOffer,5);
+    public void selectCheckboxes() {
+        waitElementToBeClickable(specialOffer, 5);
         click(specialOffer);
         click(termsOfService);
     }
 
-    public void clickCreateAccountButton(){
+    public void clickCreateAccountButton() {
         click(createAccountButton);
     }
 
-    public void waitForSpinnerToDisappear(){
-        waitForElementToBeInVisible(spinner,10);
+    public void waitForSpinnerToDisappear() {
+        waitForElementToBeInVisible(spinner, 10);
     }
 
-    public void validateSuccessAccountBanner(){
+    public void validateSuccessAccountBanner() {
         isDisplayed(successBanner);
     }
 
-    public String getSuccessBannerText(){
+    public String getSuccessBannerText() {
         return getTextValue(successBanner);
     }
 
