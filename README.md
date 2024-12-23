@@ -1,4 +1,4 @@
-# ✨ Account Functionality Automation Project ✨
+# ✨ Automation Framework ✨
 This repository contains an automated testing framework for testing account functionality on the **UO** website. The project is built using **BDD**, **TestNG**, and **Maven**, and incorporates the **Faker** library for generating test data dynamically.
 
 ---
