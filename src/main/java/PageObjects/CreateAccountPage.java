@@ -14,8 +14,12 @@ public class CreateAccountPage extends DriverHelper {
             termsOfService = "//label[@for='termsConditions']",
             spinner = "//*[@class='spinner-circle-outer']",
             successBanner = "//*[@class='notification-msg row success ng-star-inserted']",
+            errorBanner = "//*[@class='error notification-msg row ng-star-inserted']",
             createAccountButton = "//*[@data-aui='create-accnt-btn']";
 
+    /**
+     * @throws IOException
+     */
     public CreateAccountPage() throws IOException {
         setup();
         String uoUrl = System.getProperty("url");
@@ -23,6 +27,9 @@ public class CreateAccountPage extends DriverHelper {
         waitForPageToLoad(10);
     }
 
+    /**
+     * @param userFirstName
+     */
     public void setFirstName(String userFirstName) {
         sendKeys(firstName, userFirstName);
     }
@@ -50,7 +57,13 @@ public class CreateAccountPage extends DriverHelper {
     }
 
     public void waitForSpinnerToDisappear() {
-        waitForElementToBeInVisible(spinner, 10);
+        try {
+            waitForElementToBeInVisible(spinner, 10);
+        } catch (Exception e) {
+            System.out.println("=================================Exception================================");
+            System.out.println(e);
+            System.out.println("=================================Exception================================");
+        }
     }
 
     public void validateSuccessAccountBanner() {
@@ -61,8 +74,9 @@ public class CreateAccountPage extends DriverHelper {
         return getTextValue(successBanner);
     }
 
-    public void clickSearchBar() {
-        findElement("//*[@id='gh-ac']");
+    public String getErrorBannerText() {
+        return getTextValue(errorBanner);
     }
+
 
 }

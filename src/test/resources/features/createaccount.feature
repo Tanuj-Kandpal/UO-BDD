@@ -21,4 +21,8 @@ Feature: Create Account for UO Website
     @id(01)
     Examples:
       | firstName | lastName | email  | password |
-      | 123       | 672      | 97341@ | 873      |
+      | 123       | 672      | 123@   | 873      |
+    @id(02) @Ignore
+    Examples:
+      | firstName | lastName | email  | password |
+      | test      |          |        |          |

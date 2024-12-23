@@ -27,18 +27,26 @@ public class DriverHelper {
         if (url == null || url.isEmpty()) {
             throw new IllegalArgumentException("URL is not set. Please provide a valid URL using -Durl=<URL>.");
         }
-        if (browserName.equalsIgnoreCase("chrome")) {
-            driver = new ChromeDriver();
-        } else if (browserName.equalsIgnoreCase("edge")) {
-            driver = new EdgeDriver();
-        } else if (browserName.equalsIgnoreCase("firefox")) {
-            driver = new FirefoxDriver();
-        } else {
-            System.out.println("Please provide the correct browserName");
-        }
+        selectingBrowser(browserName);
         getUrl(url);
-        driver.manage().window().maximize();
         return driver;
+    }
+
+    public void selectingBrowser(String browser){
+        switch(browser.toLowerCase()){
+            case "chrome":
+                driver = new ChromeDriver();
+            break;
+            case "firefox":
+                 driver = new FirefoxDriver();
+            break;
+            case "edge":
+                driver = new EdgeDriver();
+            break;
+            default:
+                System.out.println("=====Please select any Browser======");
+        }
+        driver.manage().window().maximize();
     }
 
     public void tearDown() {
@@ -126,6 +134,7 @@ public class DriverHelper {
     }
 
     public String getTextValue(String locator) {
+        waitForElementToBeVisible(driver.findElement(By.xpath(locator)),10);
         return driver.findElement(By.xpath(locator)).getText();
     }
 

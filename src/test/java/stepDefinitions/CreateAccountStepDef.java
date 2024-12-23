@@ -60,12 +60,18 @@ public class CreateAccountStepDef extends CreateAccountPage {
 
     @Given("^I fill in the registration form with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
     public void fillRegistrationForm(String firstName, String lastName, String email, String password) {
-        // TODO: Implement form filling logic
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
+        setPassword(password);
+        selectCheckboxes();
     }
 
     @Then("I should see validation errors and not be allowed to create account")
     public void verifyValidationErrorsAndAccountNotCreated() {
-        // TODO: Implement validation checks
+        waitForSpinnerToDisappear();
+        String actualText = getErrorBannerText();
+        Assert.assertEquals(actualText, "Oops, something went wrong. Please attempt your action again.");
     }
 
     @After("@account")
